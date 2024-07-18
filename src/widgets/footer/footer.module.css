@@ -1,0 +1,17 @@
+.footerContainer{
+
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.buttonBar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 500px; 
+}
+
+.countText{
+    color: rgba(0, 0, 0, 0.534);
+  }

@@ -1,0 +1,26 @@
+.tabsContainer {
+    display: flex;
+    overflow: hidden;
+    gap: 2px;
+  }
+  
+  .tab {
+    flex: 1;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.534);
+    transition: background-color 0.3s;
+    border-radius: 4px;
+    border: 1px solid white;
+  }
+  
+
+  .tab:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .tab.active {
+    border: 1px solid #ccc;
+  }
+  

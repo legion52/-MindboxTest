@@ -1,0 +1,11 @@
+.listContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    /*dc*/
+}
+.mess {
+    font-size: 2rem;
+    color: #757373;
+}

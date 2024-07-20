@@ -1,19 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Task } from '../../shared/types/taskTypes';
 import TodoWidget from '../../widgets/todo-widget';
 import Footer from '../../widgets/footer';
 
 const TodoPage: React.FC = () => {
-  const [tasks, setTasks] = useState<Task[]>([
-    { id: 322, text: 'Тестовое задание', completed: false },
-    { id: 324, text: 'Прекрасный код', completed: true },
-    { id: 432, text: 'Не очень прекрасный код', completed: true },
-    { id: 657, text: 'Покрытие тестами', completed: false },
-    { id: 617, text: 'Сохранение todos в localStorage', completed: false },
-    { id: 874, text: 'Реализовать через Redux', completed: false },
-  ]);
+  const [tasks, setTasks] = useState<Task[]>(() => {
+    const savedTasks = localStorage.getItem('tasks');
+    return savedTasks ? JSON.parse(savedTasks) : [
+      { id: 322, text: 'Тестовое задание', completed: false },
+      { id: 324, text: 'Прекрасный код', completed: true },
+      { id: 432, text: 'Не очень прекрасный код', completed: true },
+      { id: 657, text: 'Покрытие тестами', completed: false },
+      { id: 617, text: 'Сохранение todos в localStorage', completed: false },
+      { id: 874, text: 'Реализовать через Redux', completed: false },
+    ];
+  });
 
   const [selectedTab, setSelectedTab] = useState<'All' | 'Active' | 'Completed'>('All');
+
+  useEffect(() => {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  }, [tasks]);
 
   const handleTabClick = (tab: 'All' | 'Active' | 'Completed') => {
     setSelectedTab(tab);
